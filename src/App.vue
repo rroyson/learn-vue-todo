@@ -14,6 +14,7 @@
       </li>
     </ul>
   </div>
+  <button @click="markAllDone">Mark all done.</button>
 </template>
 
 <script>
@@ -36,12 +37,17 @@ export default {
       todos.value.splice(index, 1)
     }
 
+    function markAllDone() {
+      todos.value.forEach((todo) => (todo.done = true))
+    }
+
     return {
       todos,
       newTodo,
       addNewTodo,
       toggleDone,
       removeTodo,
+      markAllDone,
     }
   },
 }
