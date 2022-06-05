@@ -14,7 +14,12 @@
       </li>
     </ul>
   </div>
-  <button @click="markAllDone">Mark all done.</button>
+  <div>
+    <button @click="markAllDone">Mark All Done</button>
+  </div>
+  <div>
+    <button @click="removeAllTodos">Remove All</button>
+  </div>
 </template>
 
 <script>
@@ -41,6 +46,10 @@ export default {
       todos.value.forEach((todo) => (todo.done = true))
     }
 
+    function removeAllTodos() {
+      todos.value = []
+    }
+
     return {
       todos,
       newTodo,
@@ -48,6 +57,7 @@ export default {
       toggleDone,
       removeTodo,
       markAllDone,
+      removeAllTodos,
     }
   },
 }
